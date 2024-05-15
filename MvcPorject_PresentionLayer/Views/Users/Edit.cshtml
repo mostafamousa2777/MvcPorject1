@@ -1,0 +1,24 @@
+﻿@model UserVM
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit @Model.Fname </h1>
+
+<form method="post" asp-action="Edit" enctype="multipart/form-data">
+
+    <partial name="PartialView/CreateEdit"></partial>
+
+    <input type="submit" value="submit" class="btn btn-outline-primary mt-4" />
+
+    <a class=" btn btn-info mt-4" asp-action="index"> back to List</a>
+
+
+
+</form>
+@section Validation {
+
+    <partial name="_ValidationScriptsPartial"></partial>
+
+
+}

@@ -1,0 +1,66 @@
+﻿@model Employeevm
+@{
+    var department = new SelectList(ViewBag.departments,"Id","Name");
+
+}
+
+<div>
+    <label asp-for="Name">Name</label>
+    <input class="form-control" asp-for="Name" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+
+</div>
+<input hidden asp-for="ImageName" />
+
+<div>
+    <label asp-for="Image">Image</label>
+    <input class="form-control" asp-for="Image" />
+
+</div>
+<div>
+    <label asp-for="Age">Age</label>
+    <input class="form-control" asp-for="Age" />
+    <span asp-validation-for="Age" class="text-danger"></span>
+
+</div>
+<div>
+    <label asp-for="Department">Department</label>
+    <select class="form-control" asp-items="department" asp-for="DepartmentId">
+
+        <option value="@null">
+            select Department
+        </option>
+    </select>
+
+</div>
+<div>
+    <label asp-for="Salary">Salary</label>
+    <input class="form-control" asp-for="Salary" />
+    <span asp-validation-for="Salary" class="text-danger"></span>
+
+</div>
+<div>
+    <label asp-for="Address">Address</label>
+    <input class="form-control" asp-for="Address" />
+    <span asp-validation-for="Address" class="text-danger"></span>
+
+</div>
+<div>
+    <label asp-for="Email">Email</label>
+    <input class="form-control" asp-for="Email" />
+    <span asp-validation-for="Email" class="text-danger"></span>
+
+</div>
+<div>
+    <label asp-for="Phone">Phone</label>
+    <input class="form-control" asp-for="Phone" />
+    <span asp-validation-for="Phone" class="text-danger"></span>
+
+</div>
+<div>
+    <label asp-for="IsActive">IsActive</label>
+    <input class="form-check" asp-for="IsActive" />
+    <span asp-validation-for="IsActive" class="text-danger"></span>
+
+</div>
+

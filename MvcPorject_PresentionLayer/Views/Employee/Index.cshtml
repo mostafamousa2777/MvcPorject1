@@ -1,0 +1,110 @@
+﻿
+@model IEnumerable<Employeevm>
+@{
+    ViewData["Title"] = "Index";
+}
+<a class="btn btn-outline-success mt-3" asp-action="Create"> create new employee</a>
+
+
+@if (Model.Count() > 0)
+{
+    <h1 class="mt-5">All employees</h1>
+    <form class="row" asp-action="Index">
+        <div class="col-10">
+            <input class="form-control" type="text" placeholder="emp name" name="SearchValue" />
+        </div>
+        <div class="col-2">
+            <input type="submit"class="btn-dark" value="search" />
+        </div>
+    </form>
+    <table class="table table-dark table-sm mt-5">
+        <thead>
+            <tr>
+                <td>@Html.DisplayNameFor(m => m.Image)</td>
+
+                <td>@Html.DisplayNameFor(m => m.Name)</td>
+                <td>@Html.DisplayNameFor(m => m.Age)</td>
+                <td>@Html.DisplayNameFor(m => m.Salary)</td>
+                <td>@Html.DisplayNameFor(m => m.Department)</td>
+
+                <td>@Html.DisplayNameFor(m => m.Address)</td>
+                <td>@Html.DisplayNameFor(m => m.Email)</td>
+                <td>@Html.DisplayNameFor(m => m.Phone)</td>
+                <td>@Html.DisplayNameFor(m => m.IsActive)</td>
+
+
+
+
+
+
+
+              
+                <td>Details</td>
+                <td>update</td>
+
+                <td>Delete</td>
+
+
+
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var employee in Model)
+            {
+                <tr>
+                    <td><img src="~/Files/Images/@employee.ImageName" class="rounded" width="75"height="75"/></td>
+
+                    <td>@employee.Name</td>
+                    <td>@employee.Age</td>
+
+                    <td>@Html.DisplayFor(e=>employee.Salary)</td>
+                    <td>@Html.DisplayFor(e => employee.Department.Name)</td>
+
+
+                    <td>@employee.Address</td>
+                    <td>@Html.DisplayFor(e => employee.Email)</td>
+                    <td>@employee.Phone</td>
+                    <td>
+                        @if (employee.IsActive)
+                        {
+
+                            <i class="fa-solid fa-circle " style=" color:forestgreen;width:120px;height:40px"></i>
+
+
+
+                        }
+                        else
+                        {
+
+                            <i class="fa-solid fa-circle " style="color:red;width:120px;height:40px"></i>
+
+
+                        }
+                    </td>
+                   
+                   
+
+
+
+                    <partial name="_ButtonPartialView" model=@employee.Id.ToString()></partial>
+                    
+
+
+
+
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+}
+
+else{
+    <h1 class="alert-dark mt-5">have no employee</h1>
+
+
+}
+
+

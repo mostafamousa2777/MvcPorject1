@@ -1,0 +1,16 @@
+﻿@model UserVM
+@{
+    ViewData["Title"] = "Delete";
+}
+<form method="post" asp-action="ConfirmDelete">
+
+    <partial name="PartialView/DeleteDetails"></partial>
+
+
+    <input type="submit" value="Delete" class="btn btn-outline-primary mt-4" />
+
+    <a class=" btn btn-info mt-4" asp-action="index"> back to List</a>
+
+
+
+</form>
